@@ -1,4 +1,4 @@
-const public = 'src/public/html';
+const public = 'src/views/html';
 
 module.exports = {
     //Index page

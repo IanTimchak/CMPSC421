@@ -13,6 +13,12 @@ Web Services
     List available products
     List items in cart
 
+        --Web service routes
+            accountRoutes
+            orderRoutes
+            productRoutes
+            
+
 Data
 # collections
     Products
@@ -22,4 +28,3 @@ Data
     Users
 
 
-    
