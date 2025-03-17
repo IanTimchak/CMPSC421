@@ -8,7 +8,7 @@ const db = require('../models/db');
 //POST
 // create Product
 const create = (req, res) => {
-    res.status(200).json({
+    res.status(201).json({
         message: 'Create product placeholder',
         product: req.body
     });

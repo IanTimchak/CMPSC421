@@ -9,7 +9,7 @@ const db = require('../models/db');
 // POST
 // signup/login
 const signup = (req, res) => {
-    res.status(200).json({
+    res.status(201).json({
         message: 'Signup placeholder',
         user: req.body
     });

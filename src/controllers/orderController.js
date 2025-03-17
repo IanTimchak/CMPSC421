@@ -8,7 +8,7 @@ const db = require('../models/db');
 // POST
 // create Order
 const create = (req, res) => {
-    res.status(200).json({
+    res.status(201).json({
         message: 'Create order placeholder',
         order: req.body
     });
@@ -17,7 +17,7 @@ const create = (req, res) => {
 // append Cart
 // This method will create a new order object that specifies a "Order Not Commited" status
 const appendCart = (req, res) => {
-    res.status(200).json({
+    res.status(201).json({
         message: 'Append cart placeholder',
         order: req.body
     });
