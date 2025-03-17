@@ -8,7 +8,7 @@ const orderController = require('../controllers/orderController');
 // create Order
 /**
  * @swagger
- * /orders:
+ * /order:
  *   post:
  *     summary: Create a new order
  *     requestBody:
@@ -35,7 +35,7 @@ router.post('/', orderController.create);
 */
 /**
  * @swagger
- * /orders/cart:
+ * /order/cart:
  *   post:
  *     summary: Append to cart (create a new order object with "Order Not Committed" status)
  *     requestBody:
@@ -60,7 +60,7 @@ router.post('/cart', orderController.appendCart);
 // update Order
 /**
  * @swagger
- * /orders/{id}/update:
+ * /order/{id}/update:
  *   put:
  *     summary: Update an existing order
  *     parameters:
@@ -92,7 +92,7 @@ router.put('/:id/update', orderController.update);
 // delete Order
 /**
  * @swagger
- * /orders/{id}/delete:
+ * /order/{id}/delete:
  *   delete:
  *     summary: Delete an order
  *     parameters:
@@ -112,7 +112,7 @@ router.delete('/:id/delete', orderController.delete);
 // retrieve single order
 /**
  * @swagger
- * /orders/{id}:
+ * /order/{id}:
  *   get:
  *     summary: Retrieve a single order
  *     parameters:
@@ -130,7 +130,7 @@ router.get('/:id', orderController.getOrder);
 // retrieve User Carts
 /**
  * @swagger
- * /orders/cart:
+ * /order/cart:
  *   get:
  *     summary: Retrieve user carts
  *     responses:

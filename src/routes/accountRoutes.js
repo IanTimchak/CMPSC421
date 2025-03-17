@@ -10,7 +10,7 @@ const accountController = require('../controllers/accountController');
 // update account
 /**
  * @swagger
- * /accounts/{id}/edit:
+ * /account/{id}/edit:
  *   put:
  *     summary: Update an existing account
  *     parameters:
@@ -42,7 +42,7 @@ router.put('/:id/edit', accountController.edit);
 // delete Account
 /**
  * @swagger
- * /accounts/{id}/delete:
+ * /account/{id}/delete:
  *   delete:
  *     summary: Delete an account
  *     parameters:

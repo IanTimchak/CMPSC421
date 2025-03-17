@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const Admin = mongoose.mongo.Admin;
 
+//Models
+const Schemas = require('./Schemas'); 
+
+
 
 //connection
 
@@ -58,6 +62,37 @@ async function listDatabases() {
 async function delay(ms) {
     return await new Promise(resolve => setTimeout(resolve, ms));
 }
+
+
+//General Create Listing
+// This function is used to create a new listing in the database
+/**
+ * @description creates a new listing in the specified collection.
+ * @param {string} collectionName - The name of the collection to create the listing in.
+ * @param {object} data - The data to insert into the collection.
+ * @returns {Promise} A promise that resolves with the created listing.
+ * @throws {Error} If the listing creation fails.
+ * @example
+ * createListing('products', { name: 'Product1', price: 100 });
+ * // Returns a promise that resolves with the created listing
+ */
+async function createListing(collectionName, data) {
+    try {
+        const collection = mongoose.connection.collection(collectionName);
+        const result = await collection.insertOne(data);
+        return result; // Return the created listing
+    } catch (error) {
+        console.error('Error creating listing:', error);
+        throw error;
+    }
+}
+
+
+
+
+
+
+
 
 //module exports
 module.exports = {

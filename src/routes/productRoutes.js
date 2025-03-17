@@ -8,7 +8,7 @@ const productController = require('../controllers/productController');
 // create Product
 /**
  * @swagger
- * /products:
+ * /product:
  *   post:
  *     summary: Create a new product
  *     requestBody:
@@ -35,7 +35,7 @@ router.post('/', productController.create);
 // update Product
 /**
  * @swagger
- * /products/{id}/edit:
+ * /product/{id}/edit:
  *   put:
  *     summary: Update an existing product
  *     parameters:
@@ -69,7 +69,7 @@ router.put('/:id/edit', productController.edit);
 // delete Product
 /**
  * @swagger
- * /products/{id}/delete:
+ * /product/{id}/delete:
  *   delete:
  *     summary: Delete a product
  *     parameters:
@@ -89,7 +89,7 @@ router.delete('/:id/delete', productController.delete);
 // retrieve single product
 /**
  * @swagger
- * /products/{id}:
+ * /product/{id}:
  *   get:
  *     summary: Retrieve a single product
  *     parameters:

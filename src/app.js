@@ -29,8 +29,8 @@ const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.0',
         info: {
-            title: 'My API',
-            version: '1.0.0',
+            title: 'CMPSC421 - Ian Timchak - Order System',
+            version: '1.0.2',
             description: 'API documentation using Swagger',
         },
         servers: [
