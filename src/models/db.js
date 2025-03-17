@@ -79,8 +79,10 @@ async function delay(ms) {
 async function createListing(collectionName, data) {
     try {
         const collection = mongoose.connection.collection(collectionName);
-        const result = await collection.insertOne(data);
-        return result; // Return the created listing
+        const Model = Schemas[collectionName]; // Get the model for the collection
+        const listing = await new Model(data).save().then().catch(); 
+        //Catches key indexing error if the data is not valid for the model
+        return listing; // Return the created listing
     } catch (error) {
         console.error('Error creating listing:', error);
         throw error;

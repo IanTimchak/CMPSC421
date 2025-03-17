@@ -41,13 +41,13 @@ const orderSchema = new mongoose.Schema({
     userId: {
         type: ObjectID,
         required: true,
-        ref: 'Account' // This should reference the account schema
+        ref: 'accounts' // This should reference the account schema
     },
     productList: [{
         productId: {
             type: ObjectID,
             required: true,
-            ref: 'Product' // This should reference the product schema
+            ref: 'products' // This should reference the product schema
         },
         quantity: {
             type: Number,
@@ -101,7 +101,7 @@ const productSchema = new mongoose.Schema({
 
 //exports
 module.exports = {
-    Account: mongoose.model('Account', accountSchema),
-    Order: mongoose.model('Order', orderSchema),
-    Product: mongoose.model('Product', productSchema)
+    Account: mongoose.model('accounts', accountSchema),
+    Order: mongoose.model('orders', orderSchema),
+    Product: mongoose.model('products', productSchema)
 };

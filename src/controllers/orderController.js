@@ -8,6 +8,12 @@ const db = require('../models/db');
 // POST
 // create Order
 const create = (req, res) => {
+
+    //Create an order
+
+    //call db.createListing
+    var order = db.createListing();
+
     res.status(201).json({
         message: 'Create order placeholder',
         order: req.body
