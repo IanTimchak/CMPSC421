@@ -54,12 +54,15 @@ async function listDatabases() {
     }
 }
 
-
-
+//SIMULATED DELAY FOR TESTING
+async function delay(ms) {
+    return await new Promise(resolve => setTimeout(resolve, ms));
+}
 
 //module exports
 module.exports = {
     startConnection,
     closeConnection,
+    delay, //Export delay for testing
     mongoose, //Export mongoose for model creation
 };

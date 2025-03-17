@@ -2,6 +2,9 @@
 // These functions will be replaced with actual logic for handling product data
 // in a real application, such as database interactions.
 
+//db
+const db = require('../models/db');
+
 //POST
 // create Product
 const create = (req, res) => {
@@ -31,12 +34,17 @@ const deleteProduct = (req, res) => {
 
 //GET
 // retrieve single product
-const getProduct = (req, res) => {
+const getProduct = async (req, res) => {
+    //delay test
+    await db.delay(3000).then(() => {
+        console.log('getProduct delay done');
+    });
     res.status(200).json({
         message: 'Get product placeholder',
         productId: req.params.id
     });
 };
+
 
 module.exports = {
     create,

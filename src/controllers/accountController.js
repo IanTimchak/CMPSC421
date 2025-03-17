@@ -2,6 +2,10 @@
 // These functions will be replaced with actual logic for handling account data
 // in a real application, such as database interactions.
 
+
+//db
+const db = require('../models/db');
+
 // POST
 // signup/login
 const signup = (req, res) => {
@@ -37,7 +41,11 @@ const deleteAccount = (req, res) => {
 
 // GET
 // retrieve single account
-const getUser = (req, res) => {
+const getUser = async (req, res) => {
+    //delay test
+    await db.delay(3000).then(() => {
+        console.log('getUser delay done');
+    });
     res.status(200).json({
         message: 'Get user placeholder',
         userId: req.params.id
