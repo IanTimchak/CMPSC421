@@ -7,10 +7,6 @@
 
 ### Account Routes
 
-- **POST /accounts**
-  - Description: Create a new account
-  - Controller: `accountController.create`
-
 - **PUT /accounts/:id/edit**
   - Description: Update an existing account
   - Controller: `accountController.edit`
