@@ -76,3 +76,39 @@
 - **POST /auth/login**
   - Description: Log in an existing user
   - Controller: `authController.login`
+
+
+## Setup Instructions
+
+### Setting up `dist.env`
+
+To set up the environment variables for this project, follow these steps:
+
+1. Create a `.env` file in the root directory of the project.
+2. Copy the contents of `dist.env` into the newly created `.env` file.
+3. Update the values in the `.env` file with your specific configuration.
+4. Save the `.env` file.
+
+### Running the Project
+
+1. Install the dependencies:
+
+    ```sh
+    npm install
+    ```
+
+2. Start the server:
+
+    ```sh
+    npm run start
+    ```
+
+## Planned Changes
+
+### Features to be Implemented
+
+- **Verbose API response**
+    - Did not get around to creating verbose/data functional API responses
+
+- **DB schematics and data manip**
+    - The DB connection works and I can interact with the db via my api responses, however the actual database hookups are not complete and no data is created, changed, or deleted. It is currently set up to be implemented.
