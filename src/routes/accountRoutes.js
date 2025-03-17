@@ -2,22 +2,20 @@ const express = require('express');
 
 const router = express.Router();
 
-const productController = require('../controllers/productController');
+const accountController = require('../controllers/accountController');
 
-// POST 
-// create Product
-router.post('/', productController.create);
+//account creation (signup) handled in authRoutes
 
 //PUT
 // update Product
-router.put('/:id/edit', productController.edit);
+router.put('/:id/edit', accountController.edit);
 
 //DELETE
 // delete Product
-router.delete('/:id/delete', productController.delete);
+router.delete('/:id/delete', accountController.delete);
 
 //GET
 // retrieve single product
-router.get('/:id', productController.getProduct);
+router.get('/:id', accountController.getUser);
 
 module.exports = router;
