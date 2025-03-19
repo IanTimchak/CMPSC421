@@ -34,9 +34,9 @@ const accountSchema = new mongoose.Schema({
 const orderSchema = new mongoose.Schema({
     orderNumber: {
         type: String,
-        required: true,
         trim: true,
-        unique: true // This should be unique to identify each order
+        required: true,
+        index: true // index value
     },
     userId: {
         type: ObjectID,
@@ -55,11 +55,6 @@ const orderSchema = new mongoose.Schema({
             min: 1
         }
     }],
-    quantity: {
-        type: Number,
-        required: true,
-        min: 1
-    },
     status: {
         type: String,
         enum: ['Order Not Commited', 'Order Commited'],
@@ -101,7 +96,7 @@ const productSchema = new mongoose.Schema({
 
 //exports
 module.exports = {
-    Account: mongoose.model('accounts', accountSchema),
-    Order: mongoose.model('orders', orderSchema),
-    Product: mongoose.model('products', productSchema)
+    accounts: mongoose.model('accounts', accountSchema),
+    orders: mongoose.model('orders', orderSchema),
+    products: mongoose.model('products', productSchema)
 };

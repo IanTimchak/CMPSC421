@@ -19,15 +19,29 @@ const orderController = require('../controllers/orderController');
  *           schema:
  *             type: object
  *             properties:
- *               items:
+ *               products:
  *                 type: array
  *                 items:
- *                   type: string
+ *                   type: object
+ *                   properties:
+ *                     productId:
+ *                       type: string
+ *                       description: ID of the product
+ *                     quantity:
+ *                       type: integer
+ *                       description: Quantity of the product
+ *               status:
+ *                 type: enum
+ *                 enum: [Order Not Commited, Order Commited]
+ *                 description: Status of the order
+ *               userId:
+ *                 type: string
+ *                 description: ID of the user who placed the order
  *     responses:
- *       200:
+ *       201:
  *         description: Order created successfully
  */
-router.post('/', orderController.create);
+router.post('/', express.json(), orderController.create);
 // append Cart
 /*
     This method will create a new order object that specifies a "Order Not Commited" status

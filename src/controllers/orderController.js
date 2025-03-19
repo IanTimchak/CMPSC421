@@ -7,17 +7,28 @@ const db = require('../models/db');
 
 // POST
 // create Order
-const create = (req, res) => {
+const create = async (req, res) => {
 
-    //Create an order
+    //Create an order number
+    try {
+        req.body.orderNumber = await db.generateOrderNumber();
+    } catch (error) {
+        //set to a default
+        req.body.orderNumber = 0;
+    }
 
     //call db.createListing
-    var order = db.createListing();
-
-    res.status(201).json({
-        message: 'Create order placeholder',
-        order: req.body
-    });
+    try {
+        var newListing = await db.createListing('orders', req.body);
+        res.status(201).json({
+            message: 'Create order placeholder',
+            order: newListing
+        });
+    } catch (error) {
+        console.error('Error creating order:', error);
+        res.status(500).json({ error: 'Failed to create order', message: error.message});
+    }
+    
 };
 
 // append Cart

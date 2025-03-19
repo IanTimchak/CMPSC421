@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
+const { ONGenerator } = require('./util'); //Import ONGenerator
 const Admin = mongoose.mongo.Admin;
 
 //Models
-const Schemas = require('./Schemas'); 
-
+const Schemas = require('./Schemas');
 
 
 //connection
@@ -22,7 +22,7 @@ async function startConnection() {
         await mongoose.connect(uri, {
             dbName: 'CMPSC421',
         });
-        
+
 
         //list databases (debug)
         await listDatabases();
@@ -78,9 +78,9 @@ async function delay(ms) {
  */
 async function createListing(collectionName, data) {
     try {
-        const collection = mongoose.connection.collection(collectionName);
         const Model = Schemas[collectionName]; // Get the model for the collection
-        const listing = await new Model(data).save().then().catch(); 
+
+        var listing = await new Model(data).save().then().catch();
         //Catches key indexing error if the data is not valid for the model
         return listing; // Return the created listing
     } catch (error) {
@@ -89,6 +89,19 @@ async function createListing(collectionName, data) {
     }
 }
 
+
+
+//Utilities
+//generate order number
+async function generateOrderNumber() {
+    //get the last order number
+    try {
+        return ONGenerator(15);
+    } catch (error) {
+        console.error('Error generating order number:', error);
+        throw error;
+    }
+}
 
 
 
@@ -101,5 +114,10 @@ module.exports = {
     startConnection,
     closeConnection,
     delay, //Export delay for testing
+    createListing,
+
+    //utilities
+    generateOrderNumber,
+
     mongoose, //Export mongoose for model creation
 };
