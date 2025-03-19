@@ -79,7 +79,6 @@ async function delay(ms) {
 async function createListing(collectionName, data) {
     try {
         const Model = Schemas[collectionName]; // Get the model for the collection
-
         var listing = await new Model(data).save().then().catch();
         //Catches key indexing error if the data is not valid for the model
         return listing; // Return the created listing
