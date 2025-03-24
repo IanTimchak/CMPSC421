@@ -3,7 +3,7 @@ const { ONGenerator } = require('./util'); //Import ONGenerator
 const Admin = mongoose.mongo.Admin;
 
 //Models
-const Schemas = require('./Schemas');
+const Schemas = require('./schemas.js');
 
 
 //connection
