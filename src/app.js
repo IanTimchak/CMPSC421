@@ -4,7 +4,7 @@ const swaggerJSDoc = require('swagger-jsdoc');
 
 const app = express();
 const port = 3000;
-const hostname = 'localhost'; //Localhost
+const hostname = '0.0.0.0'; //Localhost
 
 //Routers
 const webRoutes = require('./routes/webRoutes');

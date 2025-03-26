@@ -48,7 +48,7 @@ const getUser = async (req, res) => {
     });
     res.status(200).json({
         message: 'Get user placeholder',
-        userId: req.params.id
+        ids: await db.getAccountIds()
     });
 };
 

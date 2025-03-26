@@ -88,6 +88,25 @@ async function createListing(collectionName, data) {
     }
 }
 
+//Get list of all account ids
+/**
+ * @description Retrieves a list of all account ids from the database.
+ * @returns {Promise} A promise that resolves with the list of account ids.
+ * @throws {Error} If the retrieval fails.
+ * @example
+ * getAccountIds();
+ * // Returns a promise that resolves with the list of account ids
+ */
+async function getAccountIds() {
+    try {
+        const accounts = await Schemas['accounts'].find({}, '_id').exec();
+        return accounts.map(account => account._id);
+    } catch (error) {
+        console.error('Error getting account ids:', error);
+        throw error;
+    }
+}
+
 
 
 //Utilities
@@ -114,6 +133,7 @@ module.exports = {
     closeConnection,
     delay, //Export delay for testing
     createListing,
+    getAccountIds,
 
     //utilities
     generateOrderNumber,
