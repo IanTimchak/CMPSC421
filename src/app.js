@@ -3,7 +3,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 
 const app = express();
-const port = 3000;
+const port = 4000;
 const hostname = '0.0.0.0'; //Localhost
 
 //Routers
