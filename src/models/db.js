@@ -19,8 +19,8 @@ async function startConnection() {
     console.log(`env var USERNAME: ${process.env.MONGO_USERNAME} and PASSWORD: ${process.env.MONGO_PASSWORD}`); //debug
     const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@imt5148ordersystem.6wdxa.mongodb.net/?retryWrites=true&w=majority&appName=imt5148OrderSystem`;
     try {
-        await mongoose.connect(uri, {
-            dbName: 'CMPSC421',
+        await mongoose.connect(process.env.MONGO_URI, {
+            dbName: 'order_system', // Specify the database name
         });
 
 

@@ -15,8 +15,12 @@ services:
       context: .
     environment:
       NODE_ENV: production
+      MONGO_URI: mongodb://mongodb:27017/
     ports:
-      - 4000:4000
+      - 4000:3000
+    depends_on:
+      mongodb:
+        condition: service_healthy
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
@@ -30,24 +34,19 @@ services:
   mongodb:
     image: mongo:latest
     restart: always
-    user: postgres
-    secrets:
-      - db-password
     volumes:
       - mongodb-data:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    expose:
-      - 8081:8081
+      MONGO_INITDB_DATABASE: order_system
+    ports:
+      - 27017:27017
     healthcheck:
-      test: [ "CMD", "pg_isready" ]
+      test: echo 'db.runCommand("ping").ok | mongosh localhost:27017/test --quiet'
       interval: 10s
       timeout: 5s
       retries: 5
+
 volumes:
-  db-data:
-secrets:
-  db-password:
-    file: db/password.txt
+  mongodb-data:
+
 
